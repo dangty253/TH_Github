@@ -1,0 +1,147 @@
+<head>
+<title>Trang chủ....</title>
+<style type="text/css">
+.container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+ 
+/* ĐỔi màu nền khi hover và focus Dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+ 
+/* Định dạng các thẻ bao bọc các menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+ 
+/* Dropdown Content, mặc định sẽ được ẩn đi */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 500px;
+    
+    z-index: 1;
+}
+ 
+/* Định dạng các thẻ a là các menu con */
+.dropdown-content tr td  {
+    color: black;
+    padding: 12px 16px;
+
+}
+ 
+/* Thay đổi màu nền khi các menu con được hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+ 
+/* Hiển thị menu, ta sẽ dùng javascript để thêm class này vào các nôi dung cần được hiển thị */
+.show {display:block;}	
+</style>
+</head>
+<body> 
+<div class="container">
+    <h2>Freetuts.net hướng dẫn tạo Menu Dropdown</h2>
+    <div class="dropdown">
+        <input type="text" placeholder="Diem xuat phat" name="dxp" class="dropbtn">
+        <table width="100%" id="idxp" class="dropdown-content" > 
+            <tr>
+            	<td class="sbxp"> HAnoi</td>
+            	<td class="sbxp"> DongHoi</td>
+            	<td class="sbxp"> SG</td>
+            </tr>
+            <tr>
+            	<td class="sbxp"> qư</td>
+            	<td class="sbxp"> Hfasf</td>
+            	<td class="sbxp"> ffff</td>
+            </tr>
+            <tr>
+            	<td class="sbxp"> ddd</td>
+            	<td class="sbxp"> sdad</td>
+            	<td class="sbxp"> dsds</td>
+            </tr>    
+        </table>
+        
+    </div>
+    <div class="dropdown">
+        <input type="text" placeholder="Diem den" name="dd" class="dropbtn">
+        <table width="100%" id="idd" class="dropdown-content" > 
+            <tr>
+            	<td class="sbd"> HAnoi</td>
+            	<td class="sbd"> HAnoi2</td>
+            	<td class="sbd"> HAnoi4</td>
+            </tr>
+            <tr>
+            	<td class="sbd"> HAnoi3</td>
+            	<td class="sbd"> HAnoi4</td>
+            	<td class="sbd"> HAnoi4</td>
+            </tr>
+            <tr>
+            	<td class="sbd"> HAnoi5</td>
+            	<td class="sbd"> HAnoi6</td>
+            	<td class="sbd"> HAnoi4</td>
+            </tr>    
+        </table>
+        
+    </div>
+    <h1>sfsafsa</h1>
+</div>
+<script>
+    /* Thêm hoặc xóa class show ra khỏi phần tử */
+    function myFunction(id) {
+        document.getElementById(id).classList.toggle("show");
+    }
+
+    //lấy tất cả các button menu
+    var buttons = document.getElementsByClassName('dropbtn');
+    //lấy tất cả các thẻ chứa menu con
+    var contents = document.getElementsByClassName('dropdown-content');
+    //lặp qua tất cả các button menu và gán sự kiện
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function(){
+            //lấy value của button
+            var id = this.name;
+            //ẩn tất cả các menu con đang được hiển thị
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("show");
+            }
+            
+            //hiển thị menu vừa được click
+            myFunction("i"+id); 
+            
+        });  
+    }
+	var sbs = document.getElementsByClassName('sbxp');
+	for (var i = 0; i < sbs.length; i++) {
+    		sbs[i].addEventListener("click", function(){
+    			buttons[0].value=this.innerHTML;
+    		});
+    	}
+    var sbs = document.getElementsByClassName('sbd');
+	for (var i = 0; i < sbs.length; i++) {
+    		sbs[i].addEventListener("click", function(){
+    			buttons[1].value=this.innerHTML;
+    		});
+    	}       
+    //nếu click ra ngoài các button thì ẩn tất cả các menu con
+    window.addEventListener("click", function(){
+         if (!event.target.matches('.dropbtn')){
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("show");
+            }
+         }
+    });
+</script>
+</body>

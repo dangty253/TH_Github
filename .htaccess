@@ -1,0 +1,16 @@
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteRule ^thoat.html$ quanly/thoat.php [L]
+
+
+# Rewrite mode tin tuc #
+RewriteRule ^index.html index.php
+RewriteRule ^chuyen-bay-di-(.*)-(.*).html$ index.php?masanbaydi=$1&masanbayden=$2 [L]
+RewriteRule ^chuyen-bay-khu-hoi-(.*)-(.*)-(.*).html$ index.php?c=$3 [L]
+RewriteRule ^thong-tin-(.*).html$ index.php?tt=$1 [L]
+
+RewriteRule ^dang-nhap.html$ index.php?mod=dangnhap [L]
+RewriteRule ^dang-ky.html$ index.php?mod=dangky [L]
+RewriteRule ^tai-khoan-khach-hang.html$ index.php?mod=taikhoankhachhang [L]
+RewriteRule ^quen-mat-khau.html$ index.php?mod=quenmatkhau [L]
+RewriteRule ^doi-mat-khau-(.*).html$ index.php?mod=doimatkhau&username=$1 [L]
